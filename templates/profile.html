@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="container">
+
+
+
+  <div id="sidebarnext" class="rounding">
+    <h4 class="fs-6 text-shifting-top text-center">Регистрация: {{ reg_date }}</h4>
+  </div>
+
+  <div id="content" class="rounding">
+    <h2 class="text-center">Основная информация</h2>
+    <p class="text-start">
+       <img src="/static//icons/{{ icon }}" class="text-shifting-left" alt="" width="50" height="50">
+        {{ name }}
+      </p>
+      <hr class="bg-light border-2 border-top border-secondary">
+      {% if about != 'None' %}
+      <p class="text-shifting-left">Адрес: {{ about }} </p>
+      {% else %}
+      <p class="text-shifting-left"> Вы еще не <a href="/modify">указали</a> адрес доставки.</p>
+      {% endif %}
+      <!-- <div class="end"> </div> -->
+      <!-- <button class="btn btn-danger end" type="submit">Оформить подписку</button> -->
+    </div>
+
+  <!-- <div id="sidebarnext" class="rounding">
+    <h4 class="fs-6 text-shifting-top text-center">Подписка: {{ sub }}</h4>
+  </div> -->
+
+  <!-- <button type="button"  id="sidebarnext-nonback" class="btn btn-danger">Выйти из аккаунта</button> -->
+  <a class="btn btn-danger" id="sidebarnext-nonback" href="/settings" role="button">Изменить профиль</a>
+
+  <a class="btn btn-danger" id="sidebarnext-nonback" href="/logout" role="button">Выйти из аккаунта</a>
+  <div id="clear">
+    {% if current_user.is_admin %}
+      <div>
+      <a class="btn btn-danger"  href="/admin/profiles" style="
+      margin-top: 20px; margin-left: 1%; max-width: 18%;" role="button">Управлять учетными записями пользователей</a>
+    </div>
+    {% endif %}
+
+ 
+
+  </div>
+
+</div>
+{% endblock %}

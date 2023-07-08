@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<article class="rounding wrapper shadow" style="margin-top: 2%;">
+    <section class="otstuptop otstupbottompadding">
+        <div class="otstup ">
+
+            <hr class="bg-danger border-top border-dark">
+            {% for item in books %}
+            <div class="otstupbottom">
+                <img class="shadow cover-search" src="{{ item.icon }}" alt="">
+                <div class="item-info">
+                    <p class="fs-5">{{ item.name }}</p>
+                    <p class="fs-5" style="color: #9197a3;">{{ author }}</p>
+                    <p class="fs-7">{{ item.genre }}</p>
+                    {% if item.about != None %}
+                        <p> {{ item.about }}</p>
+                    {% endif %}
+                    <a href="/item/{{ item.id }}" class="btn btn-danger">Узнать больше</a>
+<!--                    <form target="_blank" action="/item/{{ item.id }}" method=post class=item>-->
+<!--&lt;!&ndash;                        <input type="hidden" name="entry_id" value="{{ item.id }}">&ndash;&gt;-->
+<!--                        <input type="submit" class="btn btn-danger" value="Узнать больше" />-->
+<!--                    </form>-->
+
+                </div>
+                <hr class="bg-danger border-top border-dark">
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </section>
+</article>
+{% endblock %}
